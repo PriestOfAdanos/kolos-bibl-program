@@ -30,6 +30,8 @@ top_5_gdp = df_sorted.head(5)['Wzrost PKB']
 plt.bar(top_5_years, top_5_gdp)
 plt.show()
 
+df['Wzrost PKB'] = df['Wzrost PKB'].apply(lambda x: max(0, x))
+
 # Tworzenie wykresów kołowych dla ostatnich pięciu lat
 fig, axs = plt.subplots(1, 2)
 axs[0].pie(df['Wzrost PKB'].tail(5), labels=df['Rok'].tail(5), autopct='%1.1f%%')
